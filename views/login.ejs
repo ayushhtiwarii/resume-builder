@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <!-- <link rel="stylesheet" href="/css/auth.css"> -->
+   <style>
+    body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #fff;
+}
+
+nav {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #fff;
+  color: #2575fc;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f0f0f0;
+}
+
+.footer {
+  background-color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 1rem;
+  color: #fff;
+  font-size: 14px;
+}
+
+.link-text {
+  text-align: center;
+  margin-top: 15px;
+  color: #fff;
+}
+
+.link-text a {
+  color: #fff;
+  text-decoration: underline;
+}
+   </style>
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/signup">Sign Up</a>
+  </nav>
+
+  <div class="container">
+    <div class="form-box">
+      <h2>Login</h2>
+      <form action="/login" method="POST">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+      <div class="link-text">
+        Don’t have an account? <a href="/signup">Sign Up</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">&copy; 2025 Resume Builder</footer>
+</body>
+</html>

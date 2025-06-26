@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Template 2</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #f9f9f9;
+      color: #222;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .resume-container {
+      display: flex;
+      flex-direction: column;
+      border: 2px solid #333;
+      padding: 20px;
+      border-radius: 15px;
+      background-color: #fff;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .header {
+      text-align: center;
+    }
+    h1, h2, h3 {
+      color: #333;
+      margin-bottom: 0.5em;
+    }
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+    .print-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .print-button:hover {
+      background-color: #555;
+    }
+    .profile-pic {
+      display: none;
+    }
+    @media print {
+      .print-button {
+        display: none;
+      }
+    }
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="resume-container">
+    <div class="header">
+      <h1><%= data.name %></h1>
+      <p><%= data.email %></p>
+      <p><%= data.address %></p>
+      <p>
+        <% if (data.linkedin) { %><a href="<%= data.linkedin %>" target="_blank">LinkedIn</a><% } %>
+        <% if (data.leetcode) { %> | <a href="<%= data.leetcode %>" target="_blank">LeetCode</a><% } %>
+        <% if (data.hackerrank) { %> | <a href="<%= data.hackerrank %>" target="_blank">HackerRank</a><% } %>
+      </p>
+    </div>
+    <hr>
+    
+    <h2>Objective</h2>
+    <p><%= data.objective %></p>
+    <hr>
+    
+    <h2>Work Experience</h2>
+    <p><%= data.workExperience %></p>
+    <hr>
+
+    <h2>Education</h2>
+    <ul>
+      <% data.education.split(',').forEach(edu => { %>
+        <li><%= edu.trim() %></li>
+      <% }); %>
+    </ul>
+    <hr>
+    
+    <h2>Skills</h2>
+    <ul>
+      <% data.skills.split(',').forEach(skill => { %>
+        <li><%= skill.trim() %></li>
+      <% }); %>
+    </ul>
+    <!-- Add this below Skills section -->
+    <h2>Projects</h2>
+    <ul>
+    <% if (data.projects) { %>
+      <% data.projects.split(',').forEach(project => { %>
+        <li><%= project.trim() %></li>
+      <% }); %>
+    <% } else { %>
+      <li>No projects listed.</li>
+    <% } %>
+    </ul>
+
+
+  </div>
+  
+  <button class="print-button" onclick="window.print()">Print Resume</button>
+
+</body>
+</html>
